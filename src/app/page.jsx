@@ -1,8 +1,27 @@
-import React from 'react'
+import {prisma} from "@/libs/prisma";
+import TaskCard from "./components/TaskCard";
 
-const HomePage = () => {
+
+
+async function loadTasks() {
+  // en caso de tener el backend por fuera del proyercto, en otro framework, utilizar fetch
+
+return await prisma.task.findMany()
+
+}
+
+async function HomePage ()  {
+  const tasks = await loadTasks();
+
+
   return (
-    <div>Home page</div>
+    <div className="container mx-auto max-w-screen-xl px-4 py-16 ">
+    <div className="grid grid-cols-3 gap-3 mt-10">
+      {tasks.map ((task) => (
+      <TaskCard task={task} key={task.id}/>
+      ))}
+    </div>
+    </div>
   )
 }
 
