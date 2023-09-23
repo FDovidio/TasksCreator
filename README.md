@@ -1,16 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Task Manager App
 
-## Getting Started
+![Task Manager Logo](link_to_logo.png)
 
-First, run the development server:
+Esta es una aplicación web simple para generar y editar tareas. Está construida con Next.js y se despliega en Vercel. Las tareas se almacenan en el estado local del navegador.
+
+## Características
+
+- Crear nuevas tareas.
+- Editar tareas existentes.
+- Marcar tareas como completadas.
+- Eliminar tareas.
+
+## Deploy
+
+Puedes probar la aplicación en vivo [aquí]([link_to_live_demo](https://tasks-creator.vercel.app/)).
+
+## Tecnologías Utilizadas
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [CSS Modules](https://github.com/css-modules/css-modules)
+- [Vercel](https://vercel.com/)
+- [Taildwind CSS] (https://tailwindcss.com/)
+
+## Instalación
+
+1. Clona este repositorio en tu máquina local:
 
 ```bash
-npm run dev
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
+git clone https://github.com/FDovidio/TasksCreator
