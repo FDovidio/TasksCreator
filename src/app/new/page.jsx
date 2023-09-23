@@ -1,68 +1,61 @@
-'use client'
-import {useRouter} from 'next/navigation'
-import { useEffect, useState } from 'react'
+"use client";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
+const NewPage = ({ params }) => {
+  const router = useRouter();
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
-const NewPage = ({params}) => {
-
-const router = useRouter()
-const [title, setTitle] = useState('')
-const [description, setDescription] = useState('')
-
-
-useEffect(() => {
-  if (params.id){
+  useEffect(() => {
+    if (params.id) {
       fetch(`/api/tasks/${params.id}`)
-  .then((res) => res.json())
-  .then((data) => {
-    setTitle(data.title)
-    setDescription(data.description)
-  })
-  }
-  },[params.id])
+        .then((res) => res.json())
+        .then((data) => {
+          setTitle(data.title);
+          setDescription(data.description);
+        });
+    }
+  },[]);
 
-const onSubmit = async (e) => {
-  e.preventDefault();
-  if (params.id){
-    const res = await fetch(`/api/tasks/${params.id}`, {
-      method: "PUT",
-      body: JSON.stringify({ title, description }),
-      headers: {
-        "Content-type" : "application/json" ,
-      }
-    })
-    const data = await res.json()
-    console.log(data)
-  
-    }else {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (params.id) {
+      await fetch(`/api/tasks/${params.id}`, {
+        method: "PUT",
+        body: JSON.stringify({ title, description }),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+    } else {
       const title = e.target.title.value;
       const description = e.target.description.value;
 
-      const res = await fetch("/api/tasks", {
+      await fetch("/api/tasks", {
         method: "POST",
         body: JSON.stringify({ title, description }),
         headers: {
           "Content-type": "application/json",
         },
       });
-      const data = await res.json();
-      
-  }
-  router.refresh()
-  router.push("/")
-}
-
-
+    }
+    router.refresh();
+    router.push("/");
+  };
 
   return (
-    
     <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-lg">
-          {!params.id &&(          
-          <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
-            Creador de tareas
-          </h1>
+          {!params.id ? (
+            <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+              Creador de tareas
+            </h1>
+          ) : (
+            <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+              Editar tarea {title}
+            </h1>
           )}
 
           <form
@@ -82,7 +75,6 @@ const onSubmit = async (e) => {
                   onChange={(e) => setTitle(e.target.value)}
                   value={title}
                 />
-
               </div>
             </div>
 
@@ -111,14 +103,12 @@ const onSubmit = async (e) => {
                 type="button"
                 className="block w-full rounded-lg bg-red-600 px-5 py-3 text-sm font-medium text-white"
                 onClick={async () => {
-                  const res = await fetch (`/api/tasks/${params.id}`, { 
+                  await fetch(`/api/tasks/${params.id}`, {
                     method: "DELETE",
-                  })
-                  const data = await res.json()
+                  });
                   router.refresh();
-                  router.push("/")
-                } }
-                >
+                  router.push("/");
+                }}>
                 Borrar
               </button>
             )}
@@ -127,6 +117,6 @@ const onSubmit = async (e) => {
       </div>
     </div>
   );
-}
+};
 
-export default NewPage
+export default NewPage;

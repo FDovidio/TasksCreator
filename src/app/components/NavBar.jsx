@@ -1,16 +1,9 @@
-import Link from 'next/link';
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
 const NavBar = () => {
   return (
     <div>
-      {/*
-  Heads up! 👋
-
-  Plugins:
-    - @tailwindcss/forms
-*/}
-
       <header className="bg-gray-50">
         <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
           <div className="sm:flex sm:items-center sm:justify-between">
@@ -24,15 +17,24 @@ const NavBar = () => {
               </p>
             </div>
 
-            <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
-              <ul>
+            <div className="mt-4  ">
+              <ul className="flex justify-center space-x-8 sm:justify-end ">
                 <li>
-                    <Link href="/new">
-                  <button
-                    className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
-                    type="button">
-                    Create Post
-                  </button>
+                  <Link href="/new">
+                    <button
+                      className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+                      type="button">
+                      Crear Tarea
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/">
+                    <button
+                      className="block rounded-lg bg-violet-700 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+                      type="button">
+                      Listado de Tareas
+                    </button>
                   </Link>
                 </li>
               </ul>
@@ -42,6 +44,6 @@ const NavBar = () => {
       </header>
     </div>
   );
-}
+};
 
-export default NavBar
+export default NavBar;

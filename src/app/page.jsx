@@ -4,7 +4,6 @@ import TaskCard from "./components/TaskCard";
 
 
 async function loadTasks() {
-  // en caso de tener el backend por fuera del proyercto, en otro framework, utilizar fetch
 
 return await prisma.task.findMany()
 
