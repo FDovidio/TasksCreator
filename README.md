@@ -1,8 +1,6 @@
-# Task Manager App
+# Task Creator
 
-![Task Manager Logo](link_to_logo.png)
-
-Esta es una aplicación web simple para generar y editar tareas. Está construida con Next.js y se despliega en Vercel. Las tareas se almacenan en el estado local del navegador.
+Esta es una aplicación web simple para generar y editar tareas. Está construida con Next.js y se despliega en Vercel. 
 
 ## Características
 
