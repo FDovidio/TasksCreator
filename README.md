@@ -21,7 +21,7 @@ Puedes probar la aplicación en vivo [aquí]([link_to_live_demo](https://tasks-c
 - [React](https://reactjs.org/)
 - [CSS Modules](https://github.com/css-modules/css-modules)
 - [Vercel](https://vercel.com/)
-- [Taildwind CSS] (https://tailwindcss.com/)
+- [Taildwind CSS](https://tailwindcss.com/)
 
 ## Instalación
 
