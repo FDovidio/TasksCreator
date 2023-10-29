@@ -11,7 +11,7 @@ return await prisma.task.findMany()
 
 async function HomePage ()  {
   const tasks = await loadTasks();
-
+console.log(tasks)
 
   return (
     <div className="container mx-auto max-w-screen-xl px-4 py-16 ">
