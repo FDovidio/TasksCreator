@@ -12,7 +12,7 @@ export async function POST(request){
         data:{
             title,
             description
-         }
+        }
     }) 
   return NextResponse.json(newTasks)
 }
